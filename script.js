@@ -1,6 +1,18 @@
 const main = document.querySelector('main')
-const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+const list = []
+fetch('/list.json')
+  .then(response => {
+    return response.json();
+  })
+  .then(items => { 
+    
+    items.forEach(item => {
+      const div = document.createElement('div');
+      div.textContent = item;
+      main.append(div);
+    });
+  });
+  
  function displayList(list) {
      main.innerHTML = "";
      list.forEach(item => {
