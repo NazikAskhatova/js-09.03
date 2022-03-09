@@ -1,7 +1,7 @@
 const main = document.querySelector('main')
 const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
- function displayList() {
+ function displayList(list) {
      main.innerHTML = "";
      list.forEach(item => {
          const div = document.createElement('div');
@@ -10,7 +10,7 @@ const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
      })
  }
 
- displayList()
+ displayList(list)
 
 function sortDecending() {
 // list.sort((a,b) => a > b ? -1 : 1);
@@ -28,11 +28,11 @@ list.sort((a, b) => {
   
 
 
-displayList()
+displayList(list)
 
 document.querySelector('#sort-descending').addEventListener('click', function(){
   sortDecending()
-  displayList()
+  displayList(list)
 })
 
 function sortAssending() {
@@ -48,7 +48,57 @@ function sortAssending() {
  
 document.querySelector('#sort-asscending').addEventListener('click', function(){
     sortAssending()
-    displayList()
+    displayList(list)
+  })
+
+
+  
+function onlyOdd() {
+return list.filter(item => item % 2 != 0);
+};
+    // if (item % 2 == 0 ) {
+    //     return false;
+    // }
+
+    // else {
+    //     return true;
+    // }
+displayList(list)
+
+
+
+ 
+
+function onlyEven() {
+    return list.filter(item => item % 2 == 0);
+// return num % 2 === 0 ? 'Even' : 'Odd' ;
+}
+
+displayList(list)
+
+ 
+
+  function allNumbers() {
+   return list  
+  }
+
+  displayList(list)
+
+  document.querySelector('#only-even').addEventListener('click', function(){
+    displayList(onlyEven())
   })
   
+  document.querySelector('#only-odd').addEventListener('click', function(){
+ displayList(onlyOdd())
+
+ })
+ 
+ document.querySelector('#all').addEventListener('click', function(){
+  displayList(allNumbers())
+ })
+
+
+ 
+
+ 
 
