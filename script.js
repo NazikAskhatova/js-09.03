@@ -27,5 +27,28 @@ list.sort((a, b) => {
 
   
 
-// sortDecending()
-// displayList()
+
+displayList()
+
+document.querySelector('#sort-descending').addEventListener('click', function(){
+  sortDecending()
+  displayList()
+})
+
+function sortAssending() {
+    list.sort((a, b) => {
+    if ( a > b) {
+    return 1;
+   }
+   else {
+       return -1;
+   }
+});   
+}
+ 
+document.querySelector('#sort-asscending').addEventListener('click', function(){
+    sortAssending()
+    displayList()
+  })
+  
+
